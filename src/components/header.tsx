@@ -1,8 +1,6 @@
 'use client'
 import { useId } from 'react'
 import { SearchIcon } from 'lucide-react'
-
-import Logo from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -112,9 +110,9 @@ export function Header() {
             </PopoverContent>
           </Popover>
           {/* Main nav */}
-          <div className="flex flex-1 items-center gap-6 max-md:justify-between">
+          <div className="flex flex-1 items-center gap-5 max-md:justify-between">
             <a href="#" className="text-primary hover:text-primary/90">
-              <Logo />
+              <img src="/logo.png" alt="Logo" />
             </a>
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 interface PostCardProps {
   title: string
@@ -30,7 +29,6 @@ export default function PostCard({
           alt={`Thumbnail for ${title}`}
           className="object-cover transition duration-300 ease-in-out hover:scale-105"
           sizes="(max-width: 768px) 100vw, 33vw"
-          priority
         />
       </Link>
 

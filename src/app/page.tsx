@@ -2,6 +2,7 @@ import { Banner } from '@/components/banner'
 import { Carousel } from '@/components/carousel'
 import { ClassSchedule } from '@/components/class-schedule'
 import PostCard from '@/components/post-card'
+import { ProjectsGrid } from '@/components/projects-grid'
 import Link from 'next/link'
 
 const MAX_DISPLAY = 3
@@ -88,6 +89,7 @@ export default function Home() {
           </div>
         )}
         <Banner image="https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2020/Abril/destaques/Banner_750x195_enceja.png" />
+        <ProjectsGrid />
         <ClassSchedule />
       </div>
     </>
