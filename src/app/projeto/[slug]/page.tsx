@@ -4,39 +4,38 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Calendar,
-  MapPin,
-  Users,
   ExternalLink,
   Mail,
+  MapPin,
   Phone,
+  Users,
 } from 'lucide-react'
 import Link from 'next/link'
 
 // Dados mockados do projeto
 const projectData = {
-  title: 'Fórum de Ciência e Tecnologia 2025',
-  subtitle: 'Conectando conhecimento e inovação no sul de Minas',
+  title: 'Projeto Meninas Digitais',
+  subtitle: 'Incentivando mulheres na área de Tecnologia da Informação',
   description:
-    'O Fórum de Ciência e Tecnologia é um evento anual que reúne pesquisadores, estudantes e profissionais da área para compartilhar conhecimentos, apresentar pesquisas e discutir tendências tecnológicas. O evento promove a integração entre academia e mercado, fomentando o desenvolvimento científico e tecnológico regional.',
-  status: 'Em andamento',
-  startDate: '2025-08-15',
-  endDate: '2025-08-17',
-  location: 'Campus Machado - IFSULDEMINAS',
-  coordinator: 'Prof. Dr. Maria Silva Santos',
-  participants: 150,
-  categories: ['Pesquisa', 'Extensão', 'Inovação'],
+    'Alunas dos cursos técnicos e superiores do IFSULDEMINAS - Campus Machado participam do projeto "Meninas Digitais", sob coordenação da professora Daniela Guimarães e do aluno Marcelo da Luz. O projeto visa promover a área de Tecnologia da Informação e correlatas, estimulando o interesse de mulheres e incentivando sua participação e integração no setor.',
+  status: 'Ativo',
+  startDate: '2025-03-01',
+  endDate: '2025-12-31',
+  location: 'IFSULDEMINAS - Campus Machado',
+  coordinator: 'Profª Daniela Guimarães',
+  participants: 9,
+  categories: ['Tecnologia', 'Inclusão', 'Educação'],
   objectives: [
-    'Promover a divulgação científica e tecnológica',
-    'Incentivar a pesquisa entre estudantes e docentes',
-    'Estabelecer parcerias com empresas locais',
-    'Fortalecer a rede de colaboração científica regional',
+    'Estimular o interesse de mulheres pela área de TI',
+    'Promover integração entre estudantes e profissionais da área',
+    'Realizar eventos e discussões sobre desafios enfrentados por mulheres na tecnologia',
+    'Valorizar e divulgar experiências femininas no setor',
   ],
   contact: {
-    email: 'forum.ciencia@ifsuldeminas.edu.br',
+    email: 'daniela.guimaraes@ifsuldeminas.edu.br',
     phone: '(35) 3295-1100',
   },
 }
-
 // Posts relacionados ao projeto
 const relatedPosts = [
   {
@@ -77,7 +76,7 @@ export default function ProjectPage() {
       {/* Carrossel de Imagens */}
       <Carousel
         images={[
-          'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
+          'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2019/Novembro/05/meninasDigitais/0346c219-d629-48d1-a87b-c4ac2efcfd11.jpg',
           'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2020/Abril/destaques/Banner_750x195_enceja.png',
           'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
         ]}
@@ -270,7 +269,7 @@ export default function ProjectPage() {
       </div>
 
       {/* Call-to-Action */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 rounded-3xl p-8 md:p-12">
+      <div className="relative overflow-hidden bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-700 rounded-3xl p-8 md:p-12">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
@@ -278,51 +277,49 @@ export default function ProjectPage() {
         <div className="relative text-center space-y-5 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            Inscrições Abertas
+            Projeto em andamento
           </div>
 
           <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            Participe do Fórum 2025
+            Acompanhe o projeto Meninas Digitais
           </h3>
 
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Inscreva-se agora e faça parte do maior evento de ciência e
-            tecnologia do sul de Minas Gerais.
+            Acesse a página no Instagram e fique por dentro das ações que
+            incentivam a presença feminina na área de TI.
             <span className="block mt-2 font-semibold text-yellow-300">
-              ⚡ Vagas limitadas!
+              ✨ Participe e inspire outras mulheres!
             </span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
               size="lg"
-              className="bg-white text-blue-700 hover:bg-blue-50 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+              className="bg-white text-indigo-700 hover:bg-indigo-50 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+              asChild
             >
-              <Users className="w-5 h-5 mr-2" />
-              Fazer Inscrição
-            </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="border-2 border-white/80 text-white backdrop-blur-sm font-semibold transition-all duration-200"
-            >
-              <Calendar className="w-5 h-5 mr-2" />
-              Ver Programação
+              <Link
+                href="https://www.instagram.com/seuprojetomeninasdigitais"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Ver no Instagram
+              </Link>
             </Button>
           </div>
 
           <div className="flex items-center justify-center gap-5 pt-6 text-white/80 text-sm">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              15-17 Agosto
+              01 Mar – 31 Dez
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
               Campus Machado
             </div>
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              150 vagas
+              <Users className="w-4 h-4" />9 integrantes
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ export default function PostCard({
         <img
           src={thumbnail}
           alt={`Thumbnail for ${title}`}
-          className="object-cover transition duration-300 ease-in-out hover:scale-105"
+          className="object-cover w-full h-full transition duration-300 ease-in-out hover:scale-105"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </Link>
