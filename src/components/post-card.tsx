@@ -21,7 +21,7 @@ export default function PostCard({
     <article className="grid gap-5 md:grid-cols-4">
       {/* Thumbnail */}
       <Link
-        href={`/blog/${slug}`}
+        href={`/post/${slug}`}
         className="relative block h-48 w-full md:h-full md:col-span-1 overflow-hidden rounded-lg"
       >
         <img
@@ -71,7 +71,7 @@ export default function PostCard({
 
         <div className="mt-4 text-base font-medium">
           <Link
-            href={`/blog/${slug}`}
+            href={`/post/${slug}`}
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={`Read more: "${title}"`}
           >

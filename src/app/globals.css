@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -122,5 +123,5 @@
 }
 
 @utility container{
-  @apply max-w-6xl
+  @apply max-w-7xl
 }

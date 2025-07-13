@@ -11,6 +11,8 @@ import {
   Users,
 } from 'lucide-react'
 import Link from 'next/link'
+import { AboutSection } from './about'
+import { Testimonials } from '@/components/testimonials'
 
 // Dados mockados do projeto
 const projectData = {
@@ -268,6 +270,9 @@ export default function ProjectPage() {
         </div>
       </div>
 
+      <AboutSection />
+
+      <Testimonials />
       {/* Call-to-Action */}
       <div className="relative overflow-hidden bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-700 rounded-3xl p-8 md:p-12">
         <div className="absolute inset-0 bg-black/10"></div>
