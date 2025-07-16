@@ -52,7 +52,7 @@ export function Carousel({ images }: CarouselProps) {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <div className="h-[195px] rounded-lg">
+            <div className="h-[295px] rounded-lg">
               <img
                 src={image}
                 className="object-cover w-full h-full rounded-lg"

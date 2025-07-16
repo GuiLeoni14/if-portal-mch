@@ -14,37 +14,31 @@ export function Header() {
             </div>
             <div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                Portal SI
+                Meninas Digitais
               </h1>
               <p className="text-xs text-gray-500">MCH • Desde 2025</p>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#eventos"
+            <Link
+              href="/blog"
               className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
             >
-              Eventos
-            </a>
-            <a
-              href="#sobre"
+              Blog
+            </Link>
+            <Link
+              href="/sobre"
               className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
             >
               Sobre
-            </a>
-            <a
-              href="#impacto"
+            </Link>
+            <Link
+              href="/"
               className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
             >
-              Impacto
-            </a>
-            <a
-              href="#contato"
-              className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
-            >
-              Contato
-            </a>
+              Home
+            </Link>
             <Button className="bg-gradient-to-r from-green-600 to-green-600 hover:from-green-700 hover:to-green-700 shadow-lg">
               <Search />
               Pesquisar

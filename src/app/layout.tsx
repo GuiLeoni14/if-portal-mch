@@ -3,12 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { AppSidebar } from '@/components/app-sidebar'
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/components/ui/sidebar'
+import { RootProviders } from './providers'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -26,12 +21,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased space-y-10`}>
-        <Header />
-        <main className="w-full pt-[116px]">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <RootProviders>
+      <html lang="pt-BR" suppressHydrationWarning>
+        <body className={`${inter.variable} antialiased space-y-10`}>
+          <Header />
+          <main className="w-full pt-[116px]">{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </RootProviders>
   )
 }

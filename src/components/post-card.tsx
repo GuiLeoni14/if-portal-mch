@@ -1,28 +1,31 @@
+import type { Post } from '@/api/getPosts'
 import Link from 'next/link'
 
-interface PostCardProps {
-  title: string
-  slug: string
-  date: string
-  tags: string[]
-  summary: string
-  thumbnail: string
+interface PostCardProps extends Post {
+  direction?: 'row' | 'column'
 }
 
 export default function PostCard({
   title,
-  slug,
-  date,
-  tags,
-  summary,
+  description,
   thumbnail,
+  date,
+  id,
+  tags,
+  direction = 'row',
 }: PostCardProps) {
+  const isColumn = direction === 'column'
+
   return (
-    <article className="grid gap-5 md:grid-cols-4">
+    <article className={isColumn ? 'space-y-4' : 'grid gap-5 md:grid-cols-4'}>
       {/* Thumbnail */}
       <Link
-        href={`/post/${slug}`}
-        className="relative block h-48 w-full md:h-full md:col-span-1 overflow-hidden rounded-lg"
+        href={`/post/${id}`}
+        className={
+          isColumn
+            ? 'block w-full h-48 overflow-hidden rounded-lg'
+            : 'relative block h-48 w-full md:col-span-1 overflow-hidden rounded-lg'
+        }
       >
         <img
           src={thumbnail}
@@ -33,12 +36,16 @@ export default function PostCard({
       </Link>
 
       {/* Content */}
-      <div className="md:col-span-3 flex flex-col justify-between">
+      <div
+        className={
+          isColumn ? '' : 'md:col-span-3 flex flex-col justify-between'
+        }
+      >
         <div className="space-y-4">
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl font-bold tracking-tight">
               <Link
-                href={`/blog/${slug}`}
+                href={`/blog/${id}`}
                 className="text-gray-900 dark:text-gray-100"
               >
                 {title}
@@ -65,13 +72,13 @@ export default function PostCard({
           </div>
 
           <p className="prose max-w-none text-gray-600 dark:text-gray-400">
-            {summary}
+            {description}
           </p>
         </div>
 
         <div className="mt-4 text-base font-medium">
           <Link
-            href={`/post/${slug}`}
+            href={`/post/${id}`}
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={`Read more: "${title}"`}
           >
