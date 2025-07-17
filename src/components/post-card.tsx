@@ -23,7 +23,7 @@ export default function PostCard({
         href={`/post/${id}`}
         className={
           isColumn
-            ? 'block w-full h-48 overflow-hidden rounded-lg'
+            ? 'block w-full h-[320px] overflow-hidden rounded-lg'
             : 'relative block h-48 w-full md:col-span-1 overflow-hidden rounded-lg'
         }
       >

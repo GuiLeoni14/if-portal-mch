@@ -1,11 +1,4 @@
-import {
-  Calendar,
-  Clock,
-  Eye,
-  MessageCircle,
-  Tag,
-  ChevronRight,
-} from 'lucide-react'
+import { Calendar, Clock, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -20,6 +13,7 @@ import { Input } from '@/components/ui/input'
 import { getPosts, type Post } from '@/api/getPosts'
 import { notFound } from 'next/navigation'
 import * as prismic from '@prismicio/client'
+import PostCard from '@/components/post-card'
 
 const calculateReadTime = (content: string) => {
   const wordsPerMinute = 200
@@ -63,17 +57,11 @@ const getRelatedPosts = async (
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const post = await getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
   const relatedPosts = await getRelatedPosts(post.id, post.tags)
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
-  }
 
   // Mock data for the post
   const mockMetadata = {
@@ -84,14 +72,10 @@ export default async function PostPage({
       bio: 'Professora do IFSULDEMINAS e coordenadora do projeto Meninas Digitais.',
     },
     readTime: calculateReadTime(post.content),
-    views: Math.floor(Math.random() * 2000) + 500,
-    likes: Math.floor(Math.random() * 100) + 20,
-    comments: Math.floor(Math.random() * 50) + 5,
-    category: 'Eventos',
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-10">
       {/* Hero Section */}
       <section className="bg-white pb-10">
         <div className="container mx-auto">
@@ -119,19 +103,11 @@ export default async function PostPage({
           <div className="flex flex-wrap items-center gap-6 mb-8 text-sm text-gray-500">
             <div className="flex items-center">
               <Calendar className="mr-2 h-4 w-4" />
-              {formatDate(post.date)}
+              {post.date}
             </div>
             <div className="flex items-center">
               <Clock className="mr-2 h-4 w-4" />
               {mockMetadata.readTime} de leitura
-            </div>
-            <div className="flex items-center">
-              <Eye className="mr-2 h-4 w-4" />
-              {mockMetadata.views.toLocaleString()} visualizações
-            </div>
-            <div className="flex items-center">
-              <MessageCircle className="mr-2 h-4 w-4" />
-              {mockMetadata.comments} comentários
             </div>
           </div>
 
@@ -256,7 +232,7 @@ export default async function PostPage({
                                   {relatedPost.title}
                                 </h4>
                                 <p className="text-xs text-gray-500 mt-1">
-                                  {formatDate(relatedPost.date)}
+                                  {relatedPost.date}
                                 </p>
                               </div>
                             </div>
@@ -303,32 +279,11 @@ export default async function PostPage({
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((relatedPost) => (
-                <Card
+                <PostCard
+                  direction="column"
                   key={relatedPost.id}
-                  className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg overflow-hidden cursor-pointer"
-                >
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      src={relatedPost.thumbnail}
-                      alt={relatedPost.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg group-hover:text-purple-600 transition-colors">
-                      {relatedPost.title}
-                    </CardTitle>
-                    <CardDescription>{relatedPost.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">
-                        {formatDate(relatedPost.date)}
-                      </span>
-                      <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </CardContent>
-                </Card>
+                  {...relatedPost}
+                />
               ))}
             </div>
           </div>

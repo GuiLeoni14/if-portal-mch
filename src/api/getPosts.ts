@@ -4,6 +4,8 @@ import { getPrismicClient } from '@/lib/prismicClient'
 
 export type Post = {
   id: string
+  slug: string
+  uid: string
   title: string
   description: string
   thumbnail: string
@@ -27,12 +29,14 @@ export const getPosts = async (
 ): Promise<GetPostsResponse> => {
   const prismicClient = getPrismicClient()
   const response = await prismicClient.getByType('post', {
-    orderings: 'my.post.date desc',
+    orderings: [{ field: 'my.post.date', direction: 'desc' }],
     ...params,
   })
   const posts = response.results.map(({ uid, data: post }: any) => {
     return {
       id: uid,
+      slug: uid,
+      uid,
       title: post.title,
       description: post.description,
       content: RichText.asHtml(post.content),

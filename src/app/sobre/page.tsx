@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { AboutSection } from './about'
 import { Testimonials } from '@/components/testimonials'
 import { CTA } from '@/components/cta'
+import { getPosts } from '@/api/getPosts'
 
 // Dados mockados do projeto
 const projectData = {
@@ -39,43 +40,14 @@ const projectData = {
     phone: '(35) 3295-1100',
   },
 }
-// Posts relacionados ao projeto
-const relatedPosts = [
-  {
-    slug: 'forum-ciencia-inscricoes',
-    thumbnail:
-      'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
-    date: '2025-06-20',
-    title: 'Abertas as inscrições para o Fórum de Ciência e Tecnologia 2025',
-    summary:
-      'Período de inscrições vai até 31 de julho. Não perca a oportunidade de participar do maior evento científico da região.',
-    tags: ['evento', 'inscricoes', 'ciencia'],
-  },
-  {
-    slug: 'palestrantes-confirmados',
-    thumbnail:
-      'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
-    date: '2025-06-18',
-    title: 'Palestrantes confirmados para o Fórum 2025',
-    summary:
-      'Conheça os renomados pesquisadores e profissionais que participarão do evento este ano.',
-    tags: ['palestrantes', 'programacao', 'evento'],
-  },
-  {
-    slug: 'edicao-anterior-sucesso',
-    thumbnail:
-      'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
-    date: '2025-06-15',
-    title: 'Fórum 2024: Um sucesso de participação e conhecimento',
-    summary:
-      'Relembre os principais momentos da edição anterior que reuniu mais de 200 participantes.',
-    tags: ['retrospectiva', '2024', 'sucesso'],
-  },
-]
 
-export default function ProjectPage() {
+export default async function ProjectPage() {
+  const { posts } = await getPosts({
+    pageSize: 3,
+  })
+
   return (
-    <div className="container mx-auto space-y-10">
+    <div className="container mx-auto space-y-10 pb-10">
       {/* Carrossel de Imagens */}
       <Carousel
         images={[
@@ -158,16 +130,8 @@ export default function ProjectPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-5">
-              {relatedPosts.map((post) => (
-                <PostCard
-                  key={post.slug}
-                  title={post.title}
-                  slug={post.slug}
-                  date={post.date}
-                  tags={post.tags}
-                  summary={post.summary}
-                  thumbnail={post.thumbnail}
-                />
+              {posts.map((post) => (
+                <PostCard key={post.id} {...post} />
               ))}
             </div>
           </section>

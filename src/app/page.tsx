@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { AboutSection } from './sobre/about'
 import { CTA } from '@/components/cta'
 import { getPosts } from '@/api/getPosts'
+import { Testimonials } from '@/components/testimonials'
 
 const MAX_DISPLAY = 3
 
@@ -67,6 +68,7 @@ export default async function Home() {
         </div>
 
         <CTA />
+        <Testimonials />
       </div>
     </>
   )

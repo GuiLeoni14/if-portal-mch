@@ -34,7 +34,7 @@ export function CTA() {
             asChild
           >
             <Link
-              href="https://www.instagram.com/seuprojetomeninasdigitais"
+              href="https://www.instagram.com/meninasdigitais.ifmch"
               target="_blank"
               rel="noopener noreferrer"
             >
