@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Projeto Meninas Digitais',
-      url: 'https://if-portal-mch.vercel.app',
+      url: 'https://portalmeninasdigitais.vercel.app',
     },
   ],
   creator: 'Projeto Meninas Digitais',
@@ -38,20 +38,20 @@ export const metadata: Metadata = {
     title: 'Meninas Digitais',
     description:
       'Iniciativa que incentiva meninas e mulheres a explorarem a tecnologia e a computação de forma acessível e divertida.',
-    url: 'https://if-portal-mch.vercel.app',
+    url: 'https://portalmeninasdigitais.vercel.app',
     siteName: 'Meninas Digitais',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: 'https://if-portal-mch.vercel.app/og-image.png',
+        url: 'https://portalmeninasdigitais.vercel.app/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Banner Meninas Digitais',
       },
     ],
   },
-  metadataBase: new URL('https://if-portal-mch.vercel.app'),
+  metadataBase: new URL('https://portalmeninasdigitais.vercel.app'),
 }
 
 export default function RootLayout({

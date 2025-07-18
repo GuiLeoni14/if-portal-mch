@@ -62,7 +62,7 @@ export default async function PostPage({
   const { slug } = await params
   const post = await getPostBySlug(slug)
   const relatedPosts = await getRelatedPosts(post.id, post.tags)
-  const postUrl = 'https://if-portal-mch.vercel.app/' + `blog/${slug}`
+  const postUrl = 'https://portalmeninasdigitais.vercel.app/' + `blog/${slug}`
 
   // Mock data for the post
   const mockMetadata = {
