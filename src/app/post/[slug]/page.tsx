@@ -62,6 +62,7 @@ export default async function PostPage({
   const { slug } = await params
   const post = await getPostBySlug(slug)
   const relatedPosts = await getRelatedPosts(post.id, post.tags)
+  const postUrl = 'https://if-portal-mch.vercel.app/' + `blog/${slug}`
 
   // Mock data for the post
   const mockMetadata = {
@@ -178,29 +179,60 @@ export default async function PostPage({
                         variant="outline"
                         size="sm"
                         className="w-full bg-transparent"
+                        asChild
                       >
-                        Facebook
+                        <a
+                          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Facebook
+                        </a>
                       </Button>
+
                       <Button
                         variant="outline"
                         size="sm"
                         className="w-full bg-transparent"
+                        asChild
                       >
-                        Twitter
+                        <a
+                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.title)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Twitter
+                        </a>
                       </Button>
+
                       <Button
                         variant="outline"
                         size="sm"
                         className="w-full bg-transparent"
+                        asChild
                       >
-                        LinkedIn
+                        <a
+                          href={`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(post.title)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          LinkedIn
+                        </a>
                       </Button>
+
                       <Button
                         variant="outline"
                         size="sm"
                         className="w-full bg-transparent"
+                        asChild
                       >
-                        WhatsApp
+                        <a
+                          href={`https://wa.me/?text=${encodeURIComponent(`${post.title} - ${postUrl}`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          WhatsApp
+                        </a>
                       </Button>
                     </div>
                   </CardContent>

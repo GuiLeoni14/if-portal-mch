@@ -93,8 +93,8 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-3">
             <div className="relative">
               <img
-                src="/logo.svg"
-                className="h-8 w-auto"
+                src="/logo.png"
+                className="h-10 w-auto"
                 alt="Meninas Digitais Logo"
               />
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-pink-500 rounded-full animate-pulse"></div>
@@ -103,7 +103,7 @@ export function Header() {
               <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
                 Meninas Digitais
               </h1>
-              <p className="text-xs text-gray-500">MCH • Desde 2025</p>
+              <p className="text-xs text-gray-500">MCH • Desde 2019</p>
             </div>
           </Link>
 

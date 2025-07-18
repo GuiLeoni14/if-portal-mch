@@ -47,13 +47,11 @@ export default async function ProjectPage() {
   })
 
   return (
-    <div className="container mx-auto space-y-10 pb-10">
+    <div className="container mx-auto space-y-10 py-10">
       {/* Carrossel de Imagens */}
       <Carousel
         images={[
           'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2019/Novembro/05/meninasDigitais/0346c219-d629-48d1-a87b-c4ac2efcfd11.jpg',
-          'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2020/Abril/destaques/Banner_750x195_enceja.png',
-          'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Forum_ciencia.png',
         ]}
       />
 
@@ -217,20 +215,20 @@ export default async function ProjectPage() {
                     {projectData.contact.email}
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
-                    {projectData.contact.phone}
-                  </span>
-                </div>
               </div>
             </div>
 
             {/* Botão de Ação */}
-            <Button className="w-full" size="lg">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Mais Informações
-            </Button>
+            <a
+              href="https://www.instagram.com/meninasdigitais.ifmch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full" size="lg">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Mais Informações
+              </Button>
+            </a>
           </div>
         </div>
       </div>

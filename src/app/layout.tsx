@@ -26,32 +26,32 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Projeto Meninas Digitais',
-      url: 'https://meninasdigitais.exemplo.com',
+      url: 'https://if-portal-mch.vercel.app',
     },
   ],
   creator: 'Projeto Meninas Digitais',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     title: 'Meninas Digitais',
     description:
       'Iniciativa que incentiva meninas e mulheres a explorarem a tecnologia e a computação de forma acessível e divertida.',
-    url: 'https://meninasdigitais.exemplo.com',
+    url: 'https://if-portal-mch.vercel.app',
     siteName: 'Meninas Digitais',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
-        url: 'https://meninasdigitais.exemplo.com/og-image.jpg',
+        url: 'https://if-portal-mch.vercel.app/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Banner Meninas Digitais',
       },
     ],
   },
-  metadataBase: new URL('https://meninasdigitais.exemplo.com'),
+  metadataBase: new URL('https://if-portal-mch.vercel.app'),
 }
 
 export default function RootLayout({

@@ -12,13 +12,12 @@ export default async function Home() {
   const { posts } = await getPosts()
   return (
     <>
-      <div className="container mx-auto space-y-16">
+      <div className="container mx-auto space-y-16 pt-10">
         {/* Destaques e Notícias */}
         <section className="space-y-10">
           <Carousel
             images={[
-              'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Banners_para_portal_750X195.png',
-              'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2025/Junho/Destaque/Banners_para_portal_750X195.png',
+              'https://portal.mch.ifsuldeminas.edu.br/images/imagens_noticias/2019/Novembro/05/meninasDigitais/0346c219-d629-48d1-a87b-c4ac2efcfd11.jpg',
             ]}
           />
 
